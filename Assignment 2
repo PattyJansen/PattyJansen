@@ -1,19 +1,74 @@
-	
-
-   $( '<section class="studentsassignments">Ik word zometeen een mooie tabel!</class>' ).insertAfter( ".schedule" );
+$( '<section class="students"></class>' ).insertAfter( ".info" );
      
-    studentsassignmentsTemplate = "<table> \
+// please make sure to put following code into the main.css otherwise, some parts might not work:
+// .odd {
+   background: #ccc;
+}
+.even {
+   background: #FFF;
+}
+.thead {
+   background: #000; 
+}
+
+
+// first table: students    
+    
+    studentsTemplate = "<table> \
+                                                    <thead> \
+                                                            <th>Student Number</th> \
+                                                            <th>Name</th> \
+                                                            <th>Email</th> \
+                                                            <th>Highscore</th> \
+                                                            <th>Status</th> \
+                                                    </thead> \
+                                                    <tbody> \
+                                                            {{#students}} \
+                                                                    <tr> \
+                                                                            <td>{{studentnumber}}</td> \
+                                                                            <td>{{name}}</td> \
+                                                                            <td>{{email}}</td> \
+                                                                            <td>{{highscore}}</td> \
+                                                                            <td>{{status}}</td> \
+                                                                    </tr> \
+                                                            {{/students}} \
+                                                    </tbody> \
+                                            </table>";
+     
+    template = Handlebars.compile(studentsTemplate);
+     
+    studentsData = { students: [
+          {studentnumber: "10219455", name: "Patty Jansen", email: "Patty.Jansen@student.uva.nl", highscore:"1000", status: "QUEEN"},
+          {studentnumber: "22335544", name: "Bart Schoenmakers", email: "bart.schoenmakers@gmail.com", highscore:"750", status: "Apostel"},
+          {studentnumber: "33776729", name: "Anouk Brouwer", email: "anouk.brouwer@live.nl", highscore:"500", status: "Apprentice"},
+          {studentnumber: "23456789", name: "Sebastiaan Tijsma", email: "sebastiaan.tijsma@gmail.com", highscore:"3", status: "Code Baby"},
+          {studentnumber: "10198823", name: "Florian Kuhlewind", email: "florian.kuhlewind@googlemail.com", highscore:"-10", status: "Code Foetus"},
+        ]};
+     
+     
+    $(".students").html(template(studentsData));
+
+$(".students").add("tr:odd").addClass("odd");
+$(".students").add("tr:even").addClass("even")
+$("thead").add("th").addClass("thead");
+
+
+// second table --> assignments
+
+$( '<section class="studentassignments"></class>' ).insertAfter( ".schedule" );
+     
+    studentassignmentsTemplate = "<table> \
                                                     <thead> \
                                                             <th>Name</th> \
-                                                            <th>Assign. 1</th> \
-                                                            <th>Assign. 2</th> \
-                                                            <th>Assign. 3</th> \
-                                                            <th>Assign. 4</th> \
+                                                            <th>Assignment 1</th> \
+                                                            <th>Assignment 2</th> \
+                                                            <th>Assignment 3</th> \
+                                                            <th>Assignment 4</th> \
                                                             <th>Portfolio</th> \
                                                             <th>Final Portfolio</th> \
                                                    </thead> \
                                                     <tbody> \
-                                                            {{#studentsassignments}} \
+                                                            {{#studentassignments}} \
                                                                     <tr> \
                                                                             <td>{{name}}</td> \
                                                                             <td>{{assignone}}</td> \
@@ -23,15 +78,21 @@
                                                                             <td>{{portfolio}}</td> \
                                                                             <td>{{finalportfolio}}</td> \
                                                                     </tr> \
-                                                            {{/studentsassignments}} \
+                                                            {{/studentassignments}} \
                                                     </tbody> \
                                             </table>";
      
-    template = Handlebars.compile(studentsassignmentsTemplate);
+    template = Handlebars.compile(studentassignmentsTemplate);
      
-    studentsassignmentsData = { studentsassignments: [
+    studentassignmentsData = { studentassignments: [
           {name: "Patty Jansen", assignone: "10/10", assigntwo:"10/10", assignthree:"10/10", assignfour:"10/10", portfolio:"10/10", finalportfolio:"10/10"},
           {name: "Anouk Brouwer", assignone: "0/10", assigntwo:"0/10", assignthree:"0/10", assignfour:"0/10", portfolio:"0/10", finalportfolio:"0/10"},
-          {name: "Sebastiaan Tijsma", assignone: "0/10", assigntwo:"0/10", assignthree:"0/10", assignfour:"0/10", portfolio:"0/10", finalportfolio:"0/10"}
+          {name: "Sebastiaan Tijsma", assignone: "0/10", assigntwo:"0/10", assignthree:"0/10", assignfour:"0/10", portfolio:"0/10", finalportfolio:"0/10"},
+          {name: "Florian Kuhlewind", assignone: "0/10", assigntwo:"0/10", assignthree:"0/10", assignfour:"0/10", portfolio:"0/10", finalportfolio:"0/10"},
+          {name: "Bart Schoenmakers", assignone: "0/10", assigntwo:"0/10", assignthree:"0/10", assignfour:"0/10", portfolio:"0/10", finalportfolio:"0/10"},
         ]};
-$(".studentsassignments").html(template(studentsassignmentsData));
+
+$(".studentassignments").html(template(studentassignmentsData));
+$(".studentassignments").add("tr:odd").addClass("odd");
+$(".studentassignments").add("tr:even").addClass("even");
+$("thead").add("th").addClass("thead");

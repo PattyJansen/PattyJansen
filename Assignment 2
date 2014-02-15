@@ -1,6 +1,6 @@
 	
 
-    $( '<section class="students">Ik word zometeen een mooie tabel!</class>' ).insertAfter( ".info" );
+   $( '<section class="students">Ik word zometeen een mooie tabel!</class>' ).insertAfter( ".info" );
      
     studentsTemplate = "<table> \
                                                     <thead> \
@@ -8,6 +8,7 @@
                                                             <th>Last</th> \
                                                             <th>UvA ID</th> \
                                                             <th>Email</th> \
+                                                            <th>Highscore</th> \
                                                     </thead> \
                                                     <tbody> \
                                                             {{#students}} \
@@ -16,6 +17,7 @@
                                                                             <td>{{last}}</td> \
                                                                             <td>{{uvaID}}</td> \
                                                                             <td>{{email}}</td> \
+                                                                            <td>{{highscore}}</td> \
                                                                     </tr> \
                                                             {{/students}} \
                                                     </tbody> \
@@ -24,11 +26,13 @@
     template = Handlebars.compile(studentsTemplate);
      
     studentsData = { students: [
-          {first: "piet", last: "puk", uvaID: "1", email: "piet@test.com" },
-          {first: "klaas", last: "kater", uvaID: "2", email: "klaas@test.com" },
-          {first: "erik", last: "visser", uvaID: "3", email: "erik@test.com" }
+          {first: "Patty", last: "Jansen", uvaID: "1", email: "Patty.Jansen@student.uva.nl", highscore:"1000"},
+          {first: "klaas", last: "kater", uvaID: "2", email: "klaas@test.com", highscore:"0" },
+          {first: "erik", last: "visser", uvaID: "3", email: "erik@test.com", highscore:"0" }
         ]};
      
      
     $(".students").html(template(studentsData));
+$(".students").find("table").css("background-color","black");
 
+$(".students").add("tr:odd").addClass("odd");

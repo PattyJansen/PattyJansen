@@ -1,38 +1,37 @@
 	
 
-   $( '<section class="students">Ik word zometeen een mooie tabel!</class>' ).insertAfter( ".info" );
+   $( '<section class="studentsassignments">Ik word zometeen een mooie tabel!</class>' ).insertAfter( ".schedule" );
      
-    studentsTemplate = "<table> \
+    studentsassignmentsTemplate = "<table> \
                                                     <thead> \
-                                                            <th>First</th> \
-                                                            <th>Last</th> \
-                                                            <th>UvA ID</th> \
-                                                            <th>Email</th> \
-                                                            <th>Highscore</th> \
-                                                    </thead> \
+                                                            <th>Name</th> \
+                                                            <th>Assign. 1</th> \
+                                                            <th>Assign. 2</th> \
+                                                            <th>Assign. 3</th> \
+                                                            <th>Assign. 4</th> \
+                                                            <th>Portfolio</th> \
+                                                            <th>Final Portfolio</th> \
+                                                   </thead> \
                                                     <tbody> \
-                                                            {{#students}} \
+                                                            {{#studentsassignments}} \
                                                                     <tr> \
-                                                                            <td>{{first}}</td> \
-                                                                            <td>{{last}}</td> \
-                                                                            <td>{{uvaID}}</td> \
-                                                                            <td>{{email}}</td> \
-                                                                            <td>{{highscore}}</td> \
+                                                                            <td>{{name}}</td> \
+                                                                            <td>{{assignone}}</td> \
+                                                                            <td>{{assigntwo}}</td> \
+                                                                            <td>{{assignthree}}</td> \
+                                                                            <td>{{assignfour}}</td> \
+                                                                            <td>{{portfolio}}</td> \
+                                                                            <td>{{finalportfolio}}</td> \
                                                                     </tr> \
-                                                            {{/students}} \
+                                                            {{/studentsassignments}} \
                                                     </tbody> \
                                             </table>";
      
-    template = Handlebars.compile(studentsTemplate);
+    template = Handlebars.compile(studentsassignmentsTemplate);
      
-    studentsData = { students: [
-          {first: "Patty", last: "Jansen", uvaID: "1", email: "Patty.Jansen@student.uva.nl", highscore:"1000"},
-          {first: "klaas", last: "kater", uvaID: "2", email: "klaas@test.com", highscore:"0" },
-          {first: "erik", last: "visser", uvaID: "3", email: "erik@test.com", highscore:"0" }
+    studentsassignmentsData = { studentsassignments: [
+          {name: "Patty Jansen", assignone: "10/10", assigntwo:"10/10", assignthree:"10/10", assignfour:"10/10", portfolio:"10/10", finalportfolio:"10/10"},
+          {name: "Anouk Brouwer", assignone: "0/10", assigntwo:"0/10", assignthree:"0/10", assignfour:"0/10", portfolio:"0/10", finalportfolio:"0/10"},
+          {name: "Sebastiaan Tijsma", assignone: "0/10", assigntwo:"0/10", assignthree:"0/10", assignfour:"0/10", portfolio:"0/10", finalportfolio:"0/10"}
         ]};
-     
-     
-    $(".students").html(template(studentsData));
-$(".students").find("table").css("background-color","black");
-
-$(".students").add("tr:odd").addClass("odd");
+$(".studentsassignments").html(template(studentsassignmentsData));

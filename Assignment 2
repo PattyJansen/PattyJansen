@@ -1,0 +1,34 @@
+	
+
+    $( '<section class="students">Ik word zometeen een mooie tabel!</class>' ).insertAfter( ".info" );
+     
+    studentsTemplate = "<table> \
+                                                    <thead> \
+                                                            <th>First</th> \
+                                                            <th>Last</th> \
+                                                            <th>UvA ID</th> \
+                                                            <th>Email</th> \
+                                                    </thead> \
+                                                    <tbody> \
+                                                            {{#students}} \
+                                                                    <tr> \
+                                                                            <td>{{first}}</td> \
+                                                                            <td>{{last}}</td> \
+                                                                            <td>{{uvaID}}</td> \
+                                                                            <td>{{email}}</td> \
+                                                                    </tr> \
+                                                            {{/students}} \
+                                                    </tbody> \
+                                            </table>";
+     
+    template = Handlebars.compile(studentsTemplate);
+     
+    studentsData = { students: [
+          {first: "piet", last: "puk", uvaID: "1", email: "piet@test.com" },
+          {first: "klaas", last: "kater", uvaID: "2", email: "klaas@test.com" },
+          {first: "erik", last: "visser", uvaID: "3", email: "erik@test.com" }
+        ]};
+     
+     
+    $(".students").html(template(studentsData));
+

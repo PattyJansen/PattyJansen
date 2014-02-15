@@ -1,4 +1,3 @@
-
      
 // please make sure to put following code into the main.css otherwise, some parts might not work:
 // .odd {
@@ -14,7 +13,7 @@
 
 // first table: students    
 
-    $( <section class="students"></class> ).insertAfter( ".info" );
+ $( <section class="students"></class> ).insertAfter( ".info" );
     studentsTemplate = "<table> \
                                                     <thead> \
                                                             <th>Student Number</th> \

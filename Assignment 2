@@ -13,7 +13,8 @@
 
 // first table: students    
 
- $( <section class="students"></class> ).insertAfter( ".info" );
+ $( '<section class="students"></class>' ).insertAfter( ".schedule" );
+     
     studentsTemplate = "<table> \
                                                     <thead> \
                                                             <th>Student Number</th> \
@@ -21,7 +22,7 @@
                                                             <th>Email</th> \
                                                             <th>Highscore</th> \
                                                             <th>Status</th> \
-                                                    </thead> \
+                                                   </thead> \
                                                     <tbody> \
                                                             {{#students}} \
                                                                     <tr> \
@@ -46,12 +47,10 @@
         ]};
      
      
-    $(".students").html(template(studentsData));
 
+$(".students").html(template(studentsData));
 $(".students").add("tr:odd").addClass("odd");
-$(".students").add("tr:even").addClass("even")
-$("thead").add("th").addClass("thead");
-
+$(".students").add("tr:even").addClass("even");
 
 // second table --> assignments
 

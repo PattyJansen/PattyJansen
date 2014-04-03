@@ -13,7 +13,7 @@
 
 // first table: students    
 
- $( '<section class="students"></class>' ).insertAfter( ".schedule" );
+ $( '<section class="students"></class>' ).insertAfter( ".info" );
      
     studentsTemplate = "<table> \
                                                     <thead> \

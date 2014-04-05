@@ -1,0 +1,3 @@
+$( ".info").find("table").css("background-color","black");
+$( ".info").find("td").css("border","black");
+$(".info").find("a").css("color","black");
